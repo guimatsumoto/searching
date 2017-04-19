@@ -1,0 +1,24 @@
+ESSENCIAL
+administrar dicionario (guardar dicionario)
+interface grafica
+administrador de correcao (classe algoritmo distancia, algoritmo de semantica, misspelling)
+administrador de busca (google, bing)
+
+EXTENSOES
+documento de pesos (estatistica do dicionario ingles)
+documento variavel (estatisticas do programa)
+
+http://perso.ensta-paristech.fr/~paun/ENSTA/IN204/projet_2017/
+http://perso.ensta-paristech.fr/~paun/ENSTA/IN204/projet_2017/The_Search.pdf
+https://en.wikipedia.org/wiki/Approximate_string_matching
+https://www.dcc.uchile.cl/~gnavarro/ps/spire98.2.pdf
+http://ad-publications.informatik.uni-freiburg.de/SAC_Spelling_CB_2009.pdf
+http://stackoverflow.com/questions/2344320/comparing-strings-with-tolerance
+https://en.wikipedia.org/wiki/Wikipedia:Lists_of_common_misspellings/For_machines
+https://en.wikipedia.org/wiki/Levenshtein_distance
+http://stackoverflow.com/questions/4456446/dictionary-text-file
+http://wordlist.aspell.net/
+https://raw.githubusercontent.com/sujithps/Dictionary/master/Oxford%20English%20Dictionary.txt
+https://en.wikipedia.org/wiki/Semantic_search#cite_note-8
+http://stackoverflow.com/questions/10017808/best-data-structure-for-implementing-a-dictionary
+https://en.wikipedia.org/wiki/BK-tree
