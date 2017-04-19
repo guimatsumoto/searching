@@ -34,7 +34,7 @@ cmake-build-debug/
 ## Plugin-specific files:
 
 # IntelliJ
-/out/
+#/out/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -76,6 +76,7 @@ fabric.properties
 .mtj.tmp/
 
 # Package Files #
+*.xml
 *.war
 *.ear
 *.zip

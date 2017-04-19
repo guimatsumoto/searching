@@ -1,16 +1,18 @@
-# The_Search
+#########################################################################
+# The_Search                                                            #
+#                                                                       #
+# Authors: MATSUMOTO Guilherme and PETRY Gabriel                        #
+#                                                                       #
+#########################################################################
 
-No package com.thesearch.dictionary_manager eu to colocando o arquivo de dicionário
-em ingles e uma classe generica que vai ser utilizada pra armazenar as palavras dos
-dicionários que a gente vai ter (possivelmente mais de uma lingua, ingles e frances
-talvez)
+Pour bien compiler ce projet, on a utilisé l'IDE IntelliJ de JetBrains. Il faut avoir au moins au moins java 1.7 et utiliser le niveau
+de langage au moins 7.0.
 
-O english_dictionary.txt eu criei usando o scowl, que é um arquivo de palavras em ingles
-separadas por tamanho, classificação e uso (nos EUA, Inglaterra, Canada, Austrália...).
-Criei ele com o comando ./mk-list -v3 american 95
-O que significa que estou pegando todas as palavras em inglês, com suas variações pro 
-inglês americano, de tamanho até 95 (que é o maior tamanho, então pega todas as palavras)
-e com as variações de até terceiro nivel (-v3, acho que aqui incluem conjugações e afins)
+Une fois le projet est ouverte sur le logiciel, vous pouvez changer ces configurations sur "Project", dans "Project Settings". Là bas c'est
+possible de changer la version java sur "Project SDK" et le niveau de langage sur "Project Language Level".
 
-Utilisamos a biblioteca externa Jsoup para facilitar a extracao de elementos HTML. Essa
-extracao eh utilizada para buscar a sugestao de correcao oferecida pelo google.
+L'archive à éxécuter est le searchGui.java, qui contient le vrai main(). Attention, parce que on a laissé une autre version de main, qui
+n'utilise pas des ressources visuels (c'est juste un appli terminal), pour faire des tests initiales.
+
+Au lieu de tout recompiler, vue que ça prend du temps, on vous conseille de utiliser la version de production, déjà compilé et prêt à
+éxécution.

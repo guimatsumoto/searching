@@ -19,6 +19,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import static java.lang.String.format;
 import static java.lang.Math.max;
+import java.net.*;
 
 import static com.thesearch.dictionary_manager.BkTree.levDist;
 import com.thesearch.dictionary_manager.Match;
@@ -47,13 +48,15 @@ public class Dictionary {
     }
 
     private void initializeDictWithFreq(String dictFreqFile){
-        Path path = Paths.get("src/com/thesearch/dictionary_manager", dictFreqFile);
+        //Path path = Paths.get("src/com/thesearch/dictionary_manager", dictFreqFile);
+        InputStream path = Dictionary.class.getResourceAsStream(dictFreqFile);
         BufferedReader br = null;
         _dict = new BkTree();
         String[] words;
 
         try {
-            br = Files.newBufferedReader(path, ENCODING);
+            //br = Files.newBufferedReader(path, ENCODING);
+            br = new BufferedReader(new InputStreamReader(path));
             String Line = br.readLine();
             double wordCount = Double.parseDouble(Line);
             while ((Line = br.readLine()) != null) {

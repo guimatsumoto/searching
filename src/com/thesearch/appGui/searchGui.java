@@ -102,15 +102,17 @@ public class searchGui {
                             prop = _trigramDict.contextSensitiveCorrection(prop.getSugg(), prop.getChanges());
                     }
 
+                    /*
                     if (prop == null)
                         System.out.println("prop null");
                     if (prop.getSugg() == null)
                         System.out.println("prop.sugg null");
-                    System.out.println(prop.getSugg());
+                    */
+                    //System.out.println(prop.getSugg());
                     //System.out.println("1");
 
                     String googleSugg = _extractor.extractSuggestion();
-                    if (prop.getChanges())
+                    if ((prop.getChanges()) && !(prop.getSugg().equals(query)))
                         ourSuggestionTextPanel.setText(prop.getSugg());
                     else
                         ourSuggestionTextPanel.setText("We believe your query is correct!");

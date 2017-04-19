@@ -5,10 +5,8 @@ import com.thesearch.dictionary_manager.Suggestion;
 import com.thesearch.trigrams.Trigram;
 import com.thesearch.dictionary_manager.Match;
 
+import java.io.*;
 import java.util.*;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -357,13 +355,16 @@ public class TrigramDict {
 
     public HashMap<Trigram, Double> readTrigrams(String n){
         BufferedReader br = null;
-        Path path = Paths.get("src/com/thesearch/trigrams", n);
+        //Path path = Paths.get("src/com/thesearch/trigrams", n);
+        InputStream path = Trigram.class.getResourceAsStream(n);
+        //Path path = Paths.get(n);
         String[] LineWords;
         Trigram t;
         HashMap<Trigram, Double> map = new HashMap<>();
         Double trigramCount = 0.0;
         try {
-            br = Files.newBufferedReader(path, ENCODING);
+            //br = Files.newBufferedReader(path, ENCODING);
+            br = new BufferedReader(new InputStreamReader(path));
             String Line = null;
             Line = br.readLine();
             trigramCount = Double.parseDouble(Line);
