@@ -16,6 +16,15 @@
  *      5) create a self generated dictionary that includes frequencies and updates itself when users make searches
  */
 
+/**
+ * NOT TO BE USED! This is a main() function used exclusively for testing and debugging.
+ *
+ * @authors  MATSUMOTO Guilherme, PETRY Gabriel
+ * @version 1.0
+ * @since   2017-01-21
+ */
+
+
 import com.thesearch.dictionary_manager.Dictionary;
 import com.thesearch.dictionary_manager.Match;
 import com.thesearch.dictionary_manager.Suggestion;

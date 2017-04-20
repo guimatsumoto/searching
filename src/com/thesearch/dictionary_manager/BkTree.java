@@ -1,10 +1,6 @@
 /**
  * BkTree class, main data structure to store the words
  * of the english dictionary.
- * In a first moment stores only the words with their variations,
- * e.g. verbs conjugation, capital letter initialization...
- * Later, stores word frequencies as well.
- *
  *
  * @authors  MATSUMOTO Guilherme, PETRY Gabriel
  * @version 1.0
@@ -23,17 +19,29 @@ import static java.lang.String.format;
 
 /**
  * BkTree is the class defining the data structure used to store the dictionary words.
- * The idea is that a random word will be put as global root, and each branch that comes out of the global root contains only words that have the same
- * Levenhstein distance to it. That porperty is maintained throughout all nodes of the tree.
+ * The idea is that a random word will be put as global root, and each branch that comes out of the global root contains
+ * only words that have the same Levenhstein distance to it. That porperty is maintained throughout all nodes of the tree.
  */
 public final class BkTree {
 
     private Node _root;
 
+    /**
+     * Constructor, start the tree with a null root.
+     */
     public BkTree() {
         this._root = null;
     }
 
+
+    /**
+     * Add the element "element" to the tree.
+     *
+     * - If the root is null the element is added as root.
+     * - If the the element is not found in the tree, the algorithm adds it.
+     *
+     * @param element
+     */
     public void add(String element) {
         if (element == null) throw new NullPointerException();
 
@@ -55,12 +63,12 @@ public final class BkTree {
     }
 
     /**
-     * setFreq
+     * Initially all words have frequency 0.0, as that accounts for all words, including those that could not be found
+     * in the big-v2.txt document, which is used to calculate word frequencies in english. Because of that, and the fact
+     * that a Node's frequency is private, we need a setFreq function so qe can change it.
      *
      * @param word
-     * @param freq Initially all words have frequency 0.0, as that accounts for all words, including those that could not be found in the big.txt document, which
-     *             is used to calculate word frequencies in english. Because of that, and the fact that a Node's frequency is private, we need a setFreq function
-     *             so qe can change it.
+     * @param freq
      */
     protected void setFreq(String word, Double freq) {
         if (word == null) throw new NullPointerException();
@@ -97,9 +105,9 @@ public final class BkTree {
     }
 
     /**
-     * getRoot
+     * Retrieves the tree root.
      *
-     * @return Gets the global root.
+     * @return this._root
      */
     public Node getRoot() {
         return this._root;
@@ -123,6 +131,13 @@ public final class BkTree {
         return dist[a.length()][b.length()];
     }
 
+    /**
+     * Search and return all tree elements with maximum distance maxDist from the "word".
+     *
+     * @param word
+     * @param maxDist
+     * @return A set containing all elements of the tree with distance maxDist, or smaller, of the "word".
+     */
     public Set<Match> search(String word, int maxDist){
         if (word == null) throw new NullPointerException();
         if (maxDist < 0) throw new IllegalArgumentException("Distance maximale doit etre positif");
@@ -155,6 +170,7 @@ public final class BkTree {
         return matches;
     }
 }
+
     /**
      * class Node
      * Stores a node of the BkTree.
@@ -165,6 +181,10 @@ public final class BkTree {
         private double _frequency;
         final Map<Integer, Node> childrenNode = new HashMap<>();
 
+        /**
+         * Creates a node containing the element e. The frequency is started with 0.0;
+         * @param e
+         */
         public Node(String e) {
             if (e == null) throw new NullPointerException();
             this._element = e;
@@ -187,8 +207,3 @@ public final class BkTree {
             return childrenNode.get(dist);
         }
     }
-
-
-    /*
-    fin class Node
-     */

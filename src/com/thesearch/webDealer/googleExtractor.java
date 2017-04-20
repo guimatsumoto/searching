@@ -1,3 +1,9 @@
+/**
+ * @authors  MATSUMOTO Guilherme, PETRY Gabriel
+ * @version 1.0
+ * @since   2017-01-21
+ */
+
 package com.thesearch.webDealer;
 
 import java.io.IOException;
@@ -7,7 +13,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 /**
- * Created by guilhermematsumoto on 15/04/17.
  * This class is used to maintain the url to search the requested query and the google suggestion to correct that query.
  * We also can obtain the number of results of any given query, so that we can compare the efficiency in the query correction algorithms.
  */
@@ -71,6 +76,7 @@ public class googleExtractor {
     }
 
     /**
+     * Open the URL (a google search) and retrieves what google believes is a better query.
      *
      * @return the google suggestion to the query.
      */
@@ -91,7 +97,7 @@ public class googleExtractor {
     }
 
     /**
-     * Return the exact number of results of a givern google query. Returns -1 if no results were found.
+     * Return the exact number of results of a givern google query. Returns 0 if no results were found.
      * @param query
      * @return
      */

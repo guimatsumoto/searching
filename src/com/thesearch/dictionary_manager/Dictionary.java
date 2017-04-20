@@ -34,7 +34,7 @@ import com.thesearch.dictionary_manager.Suggestion;
  *
  * Soon, to improve performance, we will need to instead of calculating occurences every time the dicitionary is created, we store occurences in the
  * dictionary file and after the last word we put the total number of words, so we can get frequencies for all words.
- * Finally implementing this part, first we make a prototype... Project due Thursday, need to hurry.
+ * Final update: new dictionary files contains words and frequencies and it works.
  */
 public class Dictionary {
     private BkTree _dict = new BkTree();

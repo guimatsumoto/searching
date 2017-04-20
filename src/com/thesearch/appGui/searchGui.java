@@ -1,3 +1,8 @@
+/**
+ * @authors  MATSUMOTO Guilherme, PETRY Gabriel
+ * @version 1.0
+ * @since   2017-01-21
+ */
 package com.thesearch.appGui;
 
 import com.thesearch.dictionary_manager.Dictionary;
@@ -15,7 +20,8 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 /**
- * Created by guilhermematsumoto on 15/04/17.
+ * Project's GUI.
+ * Generates components and instances from the correction objects, as well as the objects that treat URL accesses.
  */
 public class searchGui {
     private JPanel mainPanel;

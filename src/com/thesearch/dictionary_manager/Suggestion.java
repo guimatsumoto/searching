@@ -1,8 +1,13 @@
+/**
+ * This is a very simple class, used only so we can return two values from a function.
+ *
+ * @authors  MATSUMOTO Guilherme, PETRY Gabriel
+ * @version 1.0
+ * @since   2017-01-21
+ */
+
 package com.thesearch.dictionary_manager;
 
-/**
- * Created by guilhermematsumoto on 15/04/17.
- */
 public class Suggestion {
     private String _suggestion;
     private boolean _hasChanges;

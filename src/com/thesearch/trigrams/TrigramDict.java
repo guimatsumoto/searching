@@ -1,3 +1,13 @@
+/**
+ * TrigramDict class. It stores a dictionary of trigrams, which is a structure of three words.
+ * Didn't have time to create a decent structure to store the trigrams, so we just used a HashMap, which is not
+ * optimized to this task.
+ *
+ * @authors  MATSUMOTO Guilherme, PETRY Gabriel
+ * @version 1.0
+ * @since   2017-01-21
+ */
+
 package com.thesearch.trigrams;
 import com.thesearch.dictionary_manager.BkTree;
 import com.thesearch.dictionary_manager.Dictionary;
@@ -16,14 +26,16 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-/**
- * Created by guilhermematsumoto on 17/04/17.
- */
 public class TrigramDict {
     private HashMap<Trigram, Double> _trigrams;
     final static Charset ENCODING = StandardCharsets.UTF_8;
     private Dictionary _dict;
 
+    /**
+     * Initializes the trigram dictionary and the real word dictionary (object from class Dictionary).
+     * @param p
+     * @param dictFile
+     */
     public TrigramDict(String p, String dictFile){
         //this.createFile("big-v2.txt", p);
         _trigrams = this.readTrigrams(p);
@@ -31,6 +43,8 @@ public class TrigramDict {
     }
 
     /**
+     * Generates a query suggestion, based on a context sensitive corrector. Uses trigram analyses, based on their
+     * frequencies and occurence next to other trigrams to suggest a better query, or to accept the current query.
      *
      * @param query
      * @return returns a better query or null if no better query was found;
@@ -234,9 +248,13 @@ public class TrigramDict {
     }
 
     /**
-     * bestTrigramSubstitute
+     * Calculates all candidates to a given trigram. It does so by varying each of its words by a maximum distance of
+     * two (this value was empirical, a distance of three was taking too long). Then it combines all candidates from
+     * each of the three words generating some trigrams. Then we return all of these trigrams that exist in our trigram
+     * dictionary.
+     *
      * @param t
-     * @return the best substitute for a trigram not in the database or null if no substitute was found
+     * @return All trigram substitute candidates.
      */
     private Set<Trigram> findTrigramSubstitutes(Trigram t){
         Trigram tri = new Trigram("", "", "", 0.0);
@@ -289,6 +307,14 @@ public class TrigramDict {
         return candidates;
     }
 
+    /**
+     * Situation function. This is basically used as a script that generates a formatted trigram dictionary file, that
+     * contains total number of trigrams (with repetitions), and all trigrams and their number of occurences. Every time
+     * we change the base frequency file we should rerun this script to generate a valid and up-to-date trigram file.
+     *
+     * @param p
+     * @param n
+     */
     public void createFile(String p, String n) {
         Path path = Paths.get("src/com/thesearch/trigrams", p);
         BufferedReader br = null;
@@ -353,6 +379,13 @@ public class TrigramDict {
 
     }
 
+    /**
+     * Use I/O operations to read from a pre formatted trigram dictionary file and generate a HashMap, linking
+     * each trigram to its respective frequency.
+     *
+     * @param n
+     * @return A HashMap linking all trigrams with their respective frequencies
+     */
     public HashMap<Trigram, Double> readTrigrams(String n){
         BufferedReader br = null;
         //Path path = Paths.get("src/com/thesearch/trigrams", n);
@@ -388,6 +421,14 @@ public class TrigramDict {
         return map;
     }
 
+    /**
+     * It suggests a better query using a non-context sensitive corrector. Basically it will just correct words that
+     * are misspelled. For more information see the documentation on Dictionary.correctQuery(string query).
+     *
+     * @param query
+     * @return A suggestion containg the suggested query and whether the algorithm changed anything from the original
+     * query or not.
+     */
     public Suggestion correctWords(String query){
         return this._dict.correctQuery(query);
     }
