@@ -10,8 +10,8 @@ peuvent étre touvé sur le repositoire "The_Search", qui à cause d'une mal pra
 version ancienne. On a crée le repositoire "searching" parce que la résolution de conflits sur "The_Search" était
 trop couteause.
 
-Pour bien compiler ce projet, on a utilisé l'IDE IntelliJ de JetBrains. Il faut avoir au moins au moins java 1.7 et
-utiliser le niveau de langage au moins 7.0.
+Pour bien compiler ce projet, on a utilisé l'IDE IntelliJ de JetBrains. Il faut moins au moins java 1.7 (1.8 recomendée)
+et utiliser le niveau de langage au moins 7.0.
 
 Une fois le projet est ouverte sur le logiciel, vous pouvez changer ces configurations dans
 "Project" -> "Project Settings". Là bas, c'est possible de changer la version java sur "Project SDK" et le niveau de
@@ -21,9 +21,13 @@ L'archive à éxécuter est le searchGui.java, qui contient le vrai main(). Atte
 version de main, qui n'utilise pas des ressources visuels (c'est juste un appli terminal), pour faire des tests
 initiales.
 
-Au lieu de tout recompiler, on vous conseille d'utiliser la version de production, déjà compilé et prêt à éxécution.
-Pour cela il faut lancer un terminal et chercher le dossier "/out/artifacts/the_search_jar". Une fois dedans ce dossier
-il faut lancer le command terminal "java -jar the_search.jar" et le programme sera lancé. Il faut néanmoins avoir
-java 1.7 ou supérieur.
+################ IMPORTANT #######################
+#
+# Au lieu de tout recompiler, on vous conseille d'utiliser la version de production, déjà compilé et prêt à éxécution.
+# Pour cela il faut lancer un terminal et chercher le dossier "/out/artifacts/the_search_jar". Une fois dedans ce dossier
+# il faut lancer le command terminal "java -jar the_search.jar" et le programme sera lancé. Il faut néanmoins avoir
+# java 1.7 ou supérieur (1.8 recomendée).
+#
+##################################################
 
 Tous les commentaires sur le code ont été fait en anglais, parce qu'on était habitué à les faire de cette façon.
