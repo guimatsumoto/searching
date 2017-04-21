@@ -53,13 +53,15 @@ public class googleExtractor {
             _url += "+" + words[i];
         }
 
-        //the oq calls specify that google should show results for that specific query, not what it thinks we meant.
-        _url += "&oq=";
+        //the nfpr calls specify that google should show results for that specific query, not what it thinks we meant.
+        _url += "&nfpr=1";
+        /*
         i = 0;
         _url += words[i];
         for (i = 1; i < words.length; ++i){
             _url += "+" + words[i];
         }
+        */
         //System.out.println(_url);
     }
 
